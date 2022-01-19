@@ -2,8 +2,8 @@
 layout: page-material-sidebar-right
 title: Archive
 ---
-#### by Month
-{% include monthly_archive.html %}
+#### by Category
+{% include category_list.html %}
 
 <br/>
 
