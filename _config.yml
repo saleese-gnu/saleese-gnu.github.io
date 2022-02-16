@@ -2,7 +2,7 @@ full_rebuild: true
 name: GNU Development
 description: the blog for GNU students in sw develope class
 destination: jekyllbuild
-url: #place url
+url: https://saleese-gnu.github.io/ #place url
 baseurl: #place folder name if site is served in subfolder
 permalink: /:title/
 paginate: 8
