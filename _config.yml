@@ -1,6 +1,6 @@
 full_rebuild: true
-name: GNU Development
-description: the blog for GNU students in sw develope class
+name: GNU Software development theory PBL
+description: The blog for GNU students in Software development theory PBL calss
 destination: jekyllbuild
 url: https://saleese-gnu.github.io/ #place url
 baseurl: #place folder name if site is served in subfolder
