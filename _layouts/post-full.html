@@ -55,10 +55,14 @@
                         </div>
                         {% if page.category or page.tags %}
                         <div class="catsandtags">
-                            {% if page.category %}
+                            {% if page.categorys %}
                             <span class="category">
                                 <span class="name">categories:</span>
-                                {{ page.categories | category_links }}
+                                {% for tag in categories %}
+                                    <a href="{{ site.tag_dir | prepend: site.baseurl | replace: '//', '/' }}/{{ tag }}">{{ tag }}</a>
+                                    
+                                {% endfor %}
+                                
                             </span>
                             {% endif %}
                             {% if page.category and page.tags %}
@@ -69,6 +73,7 @@
                                 <span class="name">tags:</span>
                                 {% for tag in page.tags %}
                                     <a href="{{ site.tag_dir | prepend: site.baseurl | replace: '//', '/' }}/{{ tag }}">{{ tag }}</a>
+                                    
                                 {% endfor %}
                             </span>
                             {% endif %}

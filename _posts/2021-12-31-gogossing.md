@@ -1,11 +1,11 @@
 ---
-author: Kwon
+author: kwonGB
 type: youtube
 yt-video-id: aAkfp-yFjbg
 homedisplay: iframe
 title: 고고씽 [2021]
 tags: [demo video, scooter, python, sensor]
-category: [Raspberry Pi, safety]
+category: [RaspberryPi, safety]
 layout: post-material-sidebar-left
 ---
 ##### 킥보드 사용자의 안정성 확보를 위한 프로젝트입니다.
