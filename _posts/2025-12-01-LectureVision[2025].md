@@ -1,7 +1,7 @@
 ---
 author: KMJ
 type: youtube
-yt-video-id: 6fRR2yFQPP4
+yt-video-id: l73cmRLHaec
 homedisplay: iframe
 title: LectureVision [2025]
 tags: [kotlin, android, nodejs]
