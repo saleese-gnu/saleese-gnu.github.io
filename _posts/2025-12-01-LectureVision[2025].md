@@ -1,11 +1,11 @@
 ---
-author: LeeJW
+author: KMJ
 type: youtube
-yt-video-id: 62zS9UfgZ1A
+yt-video-id: 6fRR2yFQPP4
 homedisplay: iframe
 title: LectureVision [2025]
-tags: [kotlin, android, node.js]
-category: [app, server, convenience]
+tags: [kotlin, android, nodejs]
+category: [community, management, platform]
 layout: post-material-sidebar-left
 ---
 ##### 강의실 내 무단이탈을 방지하기 위한 자동 감지 시스템입니다.
