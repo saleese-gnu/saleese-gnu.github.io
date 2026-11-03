@@ -1,0 +1,44 @@
+name: Check project pages
+
+on:
+  push:
+    branches: [add-2026-projects]
+  pull_request:
+    branches: [master]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build with GitHub Pages Jekyll
+        uses: actions/jekyll-build-pages@v1
+      - name: Verify published project pages and their local resources
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from html.parser import HTMLParser
+          from urllib.parse import urlsplit, unquote
+          root = Path('_site')
+          projects = ['farmguard', 'dailypods', 'fastreqs', 'campus-rental', 'almost-missed', 'chal-kak', '369-party']
+          class References(HTMLParser):
+              def handle_starttag(self, tag, attrs):
+                  for key, value in attrs:
+                      if key not in ('src', 'href') or not value or not value.startswith('/') or value.startswith('//'):
+                          continue
+                      path = unquote(urlsplit(value).path)
+                      if not path.startswith(('/documents/2026/', '/img/projects-2026/', '/media/compressed/', '/category/', '/tag/')):
+                          continue
+                      target = root / path.lstrip('/')
+                      assert target.is_file() or (target / 'index.html').is_file(), path
+          for project in projects:
+              page = root / (project + '-2026') / 'index.html'
+              text = page.read_text(encoding='utf-8')
+              assert all(title in text for title in ['기능적 요구사항', '품질적 요구사항', '제약사항', '요구사항 출처 확인']), project
+              assert '<details' in text and '#### Github' not in text, project
+              References().feed(text)
+          print('Verified 7 rendered project pages and their document, image, category and tag references.')
+          PY
